@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Minimal.Models;
 
 namespace Minimal.DataAccess.Data
 {
@@ -12,5 +13,7 @@ namespace Minimal.DataAccess.Data
             : base(options)
         {
         }
+
+        DbSet<Category> Categories {get; set;}
     }
 }
