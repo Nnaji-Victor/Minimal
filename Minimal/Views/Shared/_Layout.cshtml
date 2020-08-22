@@ -3,43 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Minimal</title>
+    <title>@ViewData["Title"] - Minimal Store</title>
+    <link rel="stylesheet" href="~/css/fonts.css" />
+    <link rel="stylesheet" href="~/css/utilities.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<body class="body">
+    <div class="menu-overlay"></div>
+    <div class="site-container">
+        <section class="site-header">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Minimal</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+                <header class="header">
+                    <div class="show-on-mobile">
+                        <div class="harmburger">
+                            <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="50">
+                                <path
+                                        class="line top"
+                                        d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                                <path
+                                        class="line middle"
+                                        d="m 30,50 h 40" />
+                                <path
+                                        class="line bottom"
+                                        d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                            </svg>
 
-    <footer class="border-top footer text-muted">
+                        </div>
+                    </div>
+                    <a class="brand" asp-area="Customer" asp-controller="Home" asp-action="Index">eMinimal</a>
+                    
+                    <nav class="menu">
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Contact</a></li>
+                        <div class="show-on-mobile border-top"><partial name="_AuthMobile" /></div>
+                    </nav>
+                    
+                    <div class="header-right">
+                        <div class="auth"><partial name="_LoginPartial" /></div>
+                        <div class="cart">
+                            <svg class="icon icon-shopping-cart"><use xlink:href="/sprite.svg#icon-shopping-cart"></use></svg>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </section>
+
         <div class="container">
-            &copy; 2020 - Minimal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+
+        @* <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - Minimal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer> *@
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
