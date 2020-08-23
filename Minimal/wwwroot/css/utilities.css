@@ -61,3 +61,18 @@
   font-family: var(--Josefin);
   padding: 0;
 }
+
+.btn{
+  padding: 1.5rem 3rem;
+  color: var(--primary-text);
+  background: transparent;
+  border: 1.5px solid var(--primary-text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.btn:hover{
+  background: var(--primary-text);
+  color: var(--secondary-bg);
+}
