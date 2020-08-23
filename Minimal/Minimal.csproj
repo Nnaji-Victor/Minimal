@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Minimal.Utility\Minimal.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Minimal.csproj" />
+    <None Include="Minimal.sln" />
+  </ItemGroup>
 </Project>
