@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Minimal.DataAccess.Data;
+using Minimal.DataAccess.Repository.IRepository;
+using Minimal.DataAccess.Repository;
 
 namespace Minimal
 {
@@ -31,6 +33,7 @@ namespace Minimal
                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User ID={user};Password={password}"));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
