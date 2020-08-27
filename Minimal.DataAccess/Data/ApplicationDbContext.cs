@@ -12,5 +12,7 @@ namespace Minimal.DataAccess.Data
         }
 
         public DbSet<Category> Categories {get; set;}
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
