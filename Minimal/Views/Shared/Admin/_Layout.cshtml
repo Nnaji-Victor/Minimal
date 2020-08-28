@@ -56,9 +56,21 @@
             <section class="admin-body"> 
                 <div class="side-bar">
                     <div class="sidebar-content">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">
+                               <span class="nav-icon">
+                                   <svg class="icon"><use xlink:href="/sprite.svg#icon-home"></use></svg>
+                               </span> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">
+                               <span class="nav-icon">
+                                   <svg class="icon"><use xlink:href="/sprite.svg#icon-shopping-cart"></use></svg>
+                               </span> Orders
+                            </a>
+                        </li>
                         
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Shop</a></li>
                     </div>
                 </div>
                 
