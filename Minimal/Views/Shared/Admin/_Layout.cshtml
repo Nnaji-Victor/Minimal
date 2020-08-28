@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/css/fonts.css" />
     <link rel="stylesheet" href="~/css/utilities.css" />
     <link rel="stylesheet" href="~/css/admin.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
 </head>
 <body class="body">
     <div class="admin">
@@ -70,6 +71,13 @@
                                </span> Orders
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">
+                               <span class="nav-icon">
+                                   <svg class="icon"><use xlink:href="/sprite.svg#icon-folder"></use></svg>
+                               </span> Categories
+                            </a>
+                        </li>
                         
                     </div>
                 </div>
@@ -80,6 +88,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

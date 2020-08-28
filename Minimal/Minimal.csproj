@@ -36,5 +36,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Views\Shared\Admin\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
   </ItemGroup>
 </Project>
