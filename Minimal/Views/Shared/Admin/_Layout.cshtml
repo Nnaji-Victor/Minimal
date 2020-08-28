@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Minimal Store</title>
+    <link rel="stylesheet" href="~/css/fonts.css" />
+    <link rel="stylesheet" href="~/css/utilities.css" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body class="body">
+    <div class="admin">
+        <section class="admin-header">
+            <div class="container">
+                <div class="admin-navbar">
+                     <div class="show-on-mobile">
+                        <div class="harmburger">
+                            <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="50">
+                                <path
+                                        class="line top"
+                                        d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                                <path
+                                        class="line middle"
+                                        d="m 30,50 h 40" />
+                                <path
+                                        class="line bottom"
+                                        d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                            </svg>
+
+                        </div>
+                    </div>
+                    <div class="header-column">
+                        <a class="brand" asp-action="Index">eMinimal</a>
+                    </div>
+                    <div class="header-column header-column-right">
+                        <div class="admin-name">
+                            Hello <div>Nnaji</div>
+                        </div>
+                        <div class="admin-avatar">
+                            <img src="~/images/admin.png" alt="Admin avatar" class="admin-image">
+                        </div>
+                        <div class="logout">
+                            <div class="show-on-desktop">
+                                <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="mobile-logout-button">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="menu-overlay"></div>
+            <section class="admin-body"> 
+                <div class="side-bar">
+                    <div class="sidebar-content">
+                        
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Shop</a></li>
+                    </div>
+                </div>
+                
+                <div class="body-content">@RenderBody()</div>
+            </section>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

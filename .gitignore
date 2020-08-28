@@ -340,8 +340,9 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-.DS_Store
+**/.DS_Store
 .vscode
 Minimal/.DS_Store
 .DS_Store
 Minimal/.DS_Store
+**/.vscode/

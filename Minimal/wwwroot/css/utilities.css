@@ -1,3 +1,71 @@
+:root{
+  --Josefin : 'Josefin Sans', sans-serif;
+  --Montserrat : 'Montserrat', sans-serif;
+  --primary-bg: #f5f5f5;
+  --secondary-bg: #ffffff;
+  --primary-text: #202020;
+  --secondary-text: #4c4c4c;
+  --text-size: 1.5rem;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+.body.menu-open{
+  overflow: hidden;
+  transition: all .3s;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -37,6 +105,74 @@
 .icon{
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.nav-item{
+  list-style: none;
+}
+.nav-item a{
+  text-decoration: none;
+  color: var(--secondary-text);
+  font-size: var(--text-size);
+}
+
+.nav-item:hover a {
+  color: #000;
+  text-shadow: 1px 1px var(--secondary-text);
+}
+
+/* HAMBRUGER */
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 10;
+  position: relative;
+  transform: translateX(-12px);
+}
+.hamRotate.active {
+  transform: rotate(45deg) translate(-1.2rem, 1rem);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: var(--primary-text);
+  stroke-width:3.5;
+  stroke-linecap:round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.ham1.active .top {
+  stroke-dashoffset: -98px;
+}
+.ham1.active .bottom {
+  stroke-dashoffset: -138px;
+}
+
+.body.menu-open .menu-overlay{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 4;
+  position: fixed;
+  align-items: center;
+  touch-action: none;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .border-top{

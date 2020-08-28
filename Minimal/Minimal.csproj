@@ -33,4 +33,8 @@
     <None Include="Minimal.csproj" />
     <None Include="Minimal.sln" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Views\Shared\Admin\" />
+  </ItemGroup>
 </Project>
