@@ -6,7 +6,7 @@ namespace Minimal.DataAccess.Repository.IRepository
 {
     public interface IRepository<T> where T :class
     {
-         T Get(int id);
+         T Get(Guid id);
          IEnumerable<T> GetAll(
              Expression<Func<T, bool>> filter = null,
              Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
@@ -19,7 +19,7 @@ namespace Minimal.DataAccess.Repository.IRepository
          );
 
          void Add(T entity);
-         void Remove(int id);
+         void Remove(Guid id);
          void Remove(T entity);
          void RemoveRange(IEnumerable<T> entity);
     }

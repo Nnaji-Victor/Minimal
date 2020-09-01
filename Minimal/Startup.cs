@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Minimal.DataAccess.Data;
 using Minimal.DataAccess.Repository.IRepository;
 using Minimal.DataAccess.Repository;
+using Minimal.Utility.Helpers;
 
 namespace Minimal
 {
@@ -34,6 +35,7 @@ namespace Minimal
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

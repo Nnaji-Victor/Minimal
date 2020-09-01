@@ -68,12 +68,12 @@ namespace Minimal.DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public T Get(int id)
+        public T Get(Guid id)
         {
             return dbSet.Find(id);
         }
 
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             T entity = dbSet.Find(id);
             Remove(entity);

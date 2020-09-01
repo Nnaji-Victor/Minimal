@@ -1,0 +1,10 @@
+@model Minimal.Models.Category
+@{Layout = null;}
+
+<form asp-action="Upsert" asp-route-id="@Model.Id" onsubmit="return jQueryAjaxPost(this);">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+</form>

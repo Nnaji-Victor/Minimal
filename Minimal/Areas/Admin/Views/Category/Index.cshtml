@@ -1,4 +1,5 @@
-﻿@model Minimal.Models.Category
+﻿@model IEnumerable<Minimal.Models.Category>;
+
 @{
     ViewData["Title"] = "Category Page";
 }
@@ -9,6 +10,58 @@
     </div>
 
     <div class="category-table">
-        this is a table
+        <div class="table-head">
+             <a class="mobile-logout-button add-button" onclick="ShowInPopup('@Url.Action("Upsert", "Category", null, Context.Request.Scheme)','Add New Category')">
+                <span class="nav-icon">
+                    <svg class="icon"><use xlink:href="/sprite.svg#icon-circle-with-plus"></use></svg>
+                </span> Add Category
+            </a>
+        </div>
+        @if(Model.Count() != 0)
+        {
+         <table id="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>@Html.DisplayNameFor(m => m.Name)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                   <tr>
+                       <td>
+                            <img src="~/images/hero-image.png" alt="" class="category-picture">
+                        </td>
+                       <td>
+                           @Html.DisplayFor(m => item.Name)
+                       </td>
+                       <td class="action-column">
+                            <a class="category-edit" href="/Admin/Category/Upsert/@item.Id" >
+                                <svg class="icon"><use xlink:href="/sprite.svg#icon-settings"></use></svg>
+                            </a>
+                            <a class="category-delete">
+                                <svg class="icon icon-delete"><use xlink:href="/sprite.svg#icon-trash-2"></use></svg>
+                            </a>
+                        </td>
+                   </tr>
+                }
+            </table>
+         }
+         else
+            {
+                <div class="empty-category">
+                    <img src="~/images/NoDocuments.svg" alt="" class="no-document">
+                    <div class="empty-text">No Categories Yet</div>
+                </div>
+            } 
     </div>
 </div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+    <script>
+        $('#table').basictable({breakpoint: 641});
+    </script>
+}

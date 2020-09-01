@@ -16,4 +16,15 @@ function menuClick(){
         $(".ham").toggleClass('active');
         $(".body").toggleClass('menu-open');
     })
+};
+
+ShowInPopup = (url, title) => {
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function(res){
+            $(".modal .modal-content").html(res);
+            $(".modal .modal-title").html(title);
+        }
+    })
 }

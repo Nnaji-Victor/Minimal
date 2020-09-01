@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="~/css/fonts.css" />
     <link rel="stylesheet" href="~/css/utilities.css" />
     <link rel="stylesheet" href="~/css/admin.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/libs/basictable.css">
+    
 </head>
 <body class="body">
     <div class="admin">
@@ -84,11 +85,23 @@
                 
                 <div class="body-content">@RenderBody()</div>
             </section>
+
+            <div class="modal-container">
+                <div class="modal-mask" role="dialog"></div>
+                <div class="modal" role="alert">
+                    <button class="modal-close" role="button">X</button>
+                    <div class="modal-body">
+                        <div class="modal-title"></div>
+                        <div class="modal-content"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/modal.js"></script>
+    <script src="~/lib/basic-table/jquery.basictable.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
