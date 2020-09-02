@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using CloudinaryDotNet;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Minimal.DataAccess.Repository.IRepository;
 using Minimal.Models;
+using Minimal.Models.ViewModels;
 using Minimal.Utility.Helpers;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,41 +17,30 @@ namespace Minimal.Areas.Admin
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
-        private Cloudinary _cloudinary;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public CategoryController(IUnitOfWork unitOfWork, IOptions<CloudinarySettings> cloudinaryConfig)
+        public CategoryController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
+            _hostEnvironment = hostEnvironment;
             _unitOfWork = unitOfWork;
-             _cloudinaryConfig = cloudinaryConfig;
-
-             Account acc = new Account(
-                _cloudinaryConfig.Value.CloudName,
-                _cloudinaryConfig.Value.ApiKey,
-                _cloudinaryConfig.Value.ApiSecret
-            );
-
-            _cloudinary = new Cloudinary(acc);
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var categories = _unitOfWork.Category.GetAll().ToList();
+            var categories = _unitOfWork.Category.GetAll();
             return View(categories);
         }
 
         public IActionResult Upsert(Guid? id)
         {
             var category = new Category();
-            if(id == null)
+            if (id == null)
             {
                 return View(category);
             }
 
-            // category = _unitOfWork.Category.Get(id.GetValueOrDefault());
             category = _unitOfWork.Category.Get(id.GetValueOrDefault());
-            var photo = _unitOfWork.Category.GetFirstOrDefault(filter => filter.Photo.Id == id);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -74,7 +65,7 @@ namespace Minimal.Areas.Admin
         public IActionResult GetAll()
         {
             var obj = _unitOfWork.Category.GetAll();
-            return Json(new {data = obj});
+            return Json(new { data = obj });
         }
 
         #endregion

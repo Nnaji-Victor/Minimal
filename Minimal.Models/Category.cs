@@ -14,7 +14,7 @@ namespace Minimal.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public virtual Photo Photo { get; set; }
+        public string ImageUrl { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

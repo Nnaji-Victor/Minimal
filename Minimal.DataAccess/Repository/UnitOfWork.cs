@@ -1,5 +1,6 @@
 using Minimal.DataAccess.Data;
 using Minimal.DataAccess.Repository.IRepository;
+using Minimal.Models;
 
 namespace Minimal.DataAccess.Repository
 {
@@ -10,11 +11,13 @@ namespace Minimal.DataAccess.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            Photo = new PhotoRepository(_db);
             SP_Call = new SP_Call(_db);
 
         }
 
         public ICategoryRepository Category {get; private set;}
+        public IPhotoRepository Photo {get; private set;}
         public ISP_Call SP_Call {get; private set;}
 
         public void Dispose()

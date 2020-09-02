@@ -1,10 +1,33 @@
 @model Minimal.Models.Category
 @{Layout = null;}
 
-<form asp-action="Upsert" asp-route-id="@Model.Id" onsubmit="return jQueryAjaxPost(this);">
+@* <form asp-action="Upsert" asp-route-id="@Model.Category.Id" onsubmit="return jQueryAjaxPost(this);">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Category.Id" />
 
-    <label asp-for="Name" class="control-label"></label>
-    <input asp-for="Name" class="form-control" />
-</form>
+    <label asp-for="Category.Name" class="control-label"></label>
+    <input asp-for="Category.Name" class="form-control" />
+</form> *@
+
+
+<div class="form-area form-container">
+    <form method="post" enctype="multipart/form-data" class="form-container">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        @if(Model.Id != null)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+
+        <div class="user-box">
+            <input asp-for="Name">
+            <label asp-for="Name"></label>
+        </div>
+        <div class="user-box">
+            <input type="file" name="files" id="uploadBox">
+            <label> Category Photo </label>
+        </div>
+
+        <button type="submit" class="updates-button">Add Category</button> 
+    </form>
+</div>

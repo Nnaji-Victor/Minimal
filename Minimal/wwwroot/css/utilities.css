@@ -284,7 +284,8 @@ html{
 .modal-title{
   font-size: 3rem;
   text-transform: capitalize;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  text-align: center;
 }
 
 @media(max-width: 768px){
@@ -297,3 +298,65 @@ html{
     text-align: center;
   }
 }
+
+.form-area{
+  margin-top: 20px;
+  }
+  .form-container{
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  @media(max-width: 991px){
+    .form-container{
+      width: 50%;
+    }
+  }
+  @media(max-width: 767px){
+    .form-container{
+      width: 92%;
+    }
+  }
+  
+  .user-box {
+    position: relative;
+  }
+  
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #1b4297;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+  }
+  
+  .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #1b4297;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .user-box input:focus ~ label, .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: black;
+    font-size: 12px;
+  }
+  
+  .updates-button{
+    width: 100%;
+    background: #1b4297;
+    color: #fff;
+    padding: 15px 12px;
+    font-size: 16px;
+    border: 1px solid currentColor;
+  }
